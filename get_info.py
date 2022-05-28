@@ -25,15 +25,15 @@ session_jopens = requests.sessions.session()
 # with open("ybz_sss_stations.html", "wb") as file:
 #     file.write(r.content)
 #
-# # 获取台站通道信息
-# url_station_channels = "http://21.124.7.3:8080/jopens-ws/app/aws/menu"
-# r = session_jopens.get(url_station_channels)
-# with open("station_channels.txt", "wb") as file:
-#     file.write(r.content)
-#
-# # 获取台站断记时长（一小时一行） url_gapstat = "http://21.124.7.3:8080/jopens-ws/app/aws/gidx;jday=137;year=2022;chan=SN.F1002.40
-# .EIE;type=GAPSTAT;nday=1" r = session_jopens.get(url_gapstat) with open("gapstat_20220517_SN.F1002.txt",
-# "wb") as file: file.write(r.content)
+
+
+def  get_station_channels():
+    # 获取台站通道信息
+    url_station_channels = "http://21.124.7.3:8080/jopens-ws/app/aws/menu"
+    r = session_jopens.get(url_station_channels)
+    print(r.headers)
+    with open("station_channels.txt", "wb") as file:
+        file.write(r.content)
 
 def get_gapstat():
     # 获取台站断记时长（一小时一行,一天24行）
